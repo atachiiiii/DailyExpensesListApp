@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@drawable/back_design"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Log In"
+        android:layout_margin="40dp"
+        android:textAppearance="?android:textAppearanceLarge"
+/>
+
+    <EditText
+        android:id="@+id/password_login"
+        android:layout_width="196dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/ed_design"
+        android:hint="Email:"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp"
+        android:textColor="@android:color/white"
+
+        android:textColorHint="@android:color/white" />
+    <EditText
+        android:id="@+id/email_login"
+        android:layout_width="202dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ed_design"
+        android:hint="Password:"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:textColor="@android:color/holo_blue_dark"
+
+
+        android:textColorHint="@android:color/white" />
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="50dp"
+        android:text="Log In"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:id="@+id/btn_login"
+    />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Don't have any account? Register here."
+        android:textColor="@android:color/black"
+        android:textAppearance="?android:textAppearanceSmall"
+        android:id="@+id/signup_txt"
+        />
+
+</LinearLayout>
