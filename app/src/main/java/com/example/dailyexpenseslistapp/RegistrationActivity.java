@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -68,7 +69,7 @@ public class RegistrationActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
-
+                            startActivity(new Intent(getApplicationContext(),HomeActivity.class));
                             Toast.makeText(getApplicationContext(),"Successful", Toast.LENGTH_SHORT).show();
                             mDialog.dismiss();
 
@@ -79,7 +80,19 @@ public class RegistrationActivity extends AppCompatActivity {
                         }
                     }
                 });
-            }
 
+
+
+            }
     });
-}}
+
+
+                signin.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                    }
+                });
+
+        }
+}
