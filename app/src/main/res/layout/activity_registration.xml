@@ -60,6 +60,5 @@
         android:textAppearance="?android:textAppearanceSmall"
         android:id="@+id/signin_txt"
         />
-</LinearLayout>
     </ScrollView>
 </Linearlayout>
