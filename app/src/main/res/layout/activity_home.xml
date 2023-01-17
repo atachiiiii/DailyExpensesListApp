@@ -88,24 +88,25 @@
         </LinearLayout>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="15dp"
-        app:fabSize="normal"
-        android:id="@+id/id_fab"
-        android:backgroundTint="#1383CA"
-        >
-    </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_home"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="681dp">
 
     </androidx.recyclerview.widget.RecyclerView>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_margin="15dp"
+        app:fabSize="normal"
+        android:id="@+id/id_fab"
+        android:backgroundTint="#1383CA"
+        android:src="@drawable/plus"
+        >
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
 
 </LinearLayout>
