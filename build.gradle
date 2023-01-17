@@ -4,6 +4,7 @@
 buildscript {
     dependencies {
         classpath 'com.google.gms:google-services:4.3.10'
+        classpath 'com.android.tools.build:gradle:3.4.2'
     }
 }
 plugins {
@@ -17,8 +18,11 @@ plugins {
         google()  // Google's Maven repository
 
         mavenCentral()  // Maven Central repository
-
+        jcenter {
+            url "http://jcenter.bintray.com/"
+        }
     }
+
 
     dependencies {
 
@@ -35,6 +39,8 @@ allprojects {
         google()  // Google's Maven repository
 
         mavenCentral()  // Maven Central repository
-
+        jcenter {
+            url "http://jcenter.bintray.com/"
+        }
     }
 }
