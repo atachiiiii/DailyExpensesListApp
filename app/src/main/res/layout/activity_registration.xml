@@ -23,6 +23,7 @@
                 android:layout_margin="40dp"
                 android:textAppearance="?android:textAppearanceLarge"
                 />
+
             <EditText
                 android:id="@+id/email_reg"
                 android:layout_width="202dp"
@@ -30,6 +31,7 @@
                 android:layout_margin="10dp"
                 android:background="@drawable/ed_design"
                 android:hint="Email:"
+                android:layout_gravity="center"
                 android:minHeight="48dp"
                 android:textColor="@android:color/white"
                 android:textColorHint="@android:color/white" />
@@ -43,7 +45,9 @@
                 android:inputType="textPassword"
                 android:minHeight="48dp"
                 android:textColor="@color/white"
-                android:textColorHint="@android:color/white" />
+                android:textColorHint="@android:color/white"
+                android:layout_gravity="center"
+                />
 
             <Button
                 android:layout_width="match_parent"
