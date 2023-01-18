@@ -111,6 +111,7 @@ public class HomeActivity extends AppCompatActivity {
 
                     mDatabase.child(id).setValue(data);
 
+                    Toast.makeText(getApplicationContext(),"Data Add",Toast.LENGTH_SHORT);
                     dialog.dismiss();
                 }
             });
