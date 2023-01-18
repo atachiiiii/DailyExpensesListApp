@@ -1,6 +1,5 @@
 package com.example.dailyexpenseslistapp;
 
-import android.app.Dialog;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -19,12 +18,10 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import org.w3c.dom.Text;
-
 import java.text.DateFormat;
 import java.util.Date;
 
-import Model.Data;
+import com.example.dailyexpenseslistapp.Model.Data;
 
 public class HomeActivity extends AppCompatActivity {
 

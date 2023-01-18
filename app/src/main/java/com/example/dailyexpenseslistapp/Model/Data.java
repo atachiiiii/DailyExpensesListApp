@@ -1,4 +1,4 @@
-package Model;
+package com.example.dailyexpenseslistapp.Model;
 
 public class Data {
 
