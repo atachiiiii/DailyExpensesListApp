@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.dailyexpenseslistapp.Model.Data;
 
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -108,7 +109,7 @@ public class HomeActivity extends AppCompatActivity {
                         return;
                     }
                     if (TextUtils.isEmpty(mNote)) {
-                        note.setError("Reuqired Field..");
+                        note.setError("Required Field..");
                         return;
                     }
 
@@ -121,6 +122,7 @@ public class HomeActivity extends AppCompatActivity {
                     mDatabase.child(id).setValue(data);
 
                     Toast.makeText(getApplicationContext(),"Data Add",Toast.LENGTH_SHORT);
+
                     dialog.dismiss();
                 }
             });
@@ -134,17 +136,21 @@ public class HomeActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        FirebaseRecyclerAdapter<Data,MyViewHolder>adapter= new FirebaseRecyclerAdapter, MyViewHolder> (
-                Data.class,
-                R.layout.item_data,
-                MyViewHolder.class,
-                mDatabase;
+        FirebaseRecyclerAdapter<Data,MyViewHolder>adapter=new FirebaseRecyclerAdapter<Data, MyViewHolder>
+                (
+                        Data.class,
+                        R.layout.item_data,
+                        MyViewHolder.class,
+                        mDatabase
                 )
+                
+
+
         {
 
 
             @Override
-            protected void populateViewHolder (MyViewHolder viewHolder, Data model,int position){
+            protected void populateViewHolder(MyViewHolder viewHolder, Data model,int position){
 
                 viewHolder.setDate(model.getDate());
                 viewHolder.setType(model.getType());
