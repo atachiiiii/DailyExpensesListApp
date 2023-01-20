@@ -6,11 +6,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
@@ -32,6 +36,8 @@ public class HomeActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
 
+    private RecyclerView recyclerView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +54,13 @@ public class HomeActivity extends AppCompatActivity {
 
         mDatabase= FirebaseDatabase.getInstance().getReference().child("Expenses List").child(uId);
 
+        mDatabase.keepSynced(true);
+        recyclerView = findViewById(R.id.recycler_home);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setStackFromEnd(true);
+        layoutManager.setReverseLayout(true);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(layoutManager);
 
 
         fab_btn=findViewById(R.id.id_fab);
@@ -118,4 +131,56 @@ public class HomeActivity extends AppCompatActivity {
 
         }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        FirebaseRecyclerAdapter<Data,MyViewHolder>adapter= new FirebaseRecyclerAdapter, MyViewHolder>
+        (
+                Data.class,
+                R.layout.item_data,
+                MyViewHolder.class,
+                mDatabase
+                )
+        {
+
+
+            @Override
+            protected void populateViewHolder (MyViewHolder viewHolder, Data model,int position){
+
+                viewHolder.setDate(model.getDate());
+                viewHolder.setType(model.getType());
+                viewHolder.setNote(model.getNote());
+                viewHolder.setAmount(model.getAmount());
+            }
+        };
+        RecyclerView.setAdapter(adapter);
+
     }
+
+    public static class MyViewHolder extends RecyclerView.ViewHolder{
+        View myview;
+
+        public MyViewHolder(View itemView) {
+            super(itemView);
+            myview=itemView;
+        }
+
+        public void setType (String type) {
+            TextView mType=myview.findViewById(R.id.type);
+        }
+
+        public void setNote(String note){
+            TextView mNote=myview.findViewById(R.id.note);
+            mNote.setText(note);
+        }
+        public void setDate(String date){
+            TextView mDate=myview.findViewById(R.id.date);
+            mDate.setText(date);
+        }
+        public void setAmount (int amount){
+            TextView mAmount=myview.findViewById(R.id.amount);
+            String stam=String.valueOf(amount);
+            mAmount.setText(stam);
+        }
+}}
