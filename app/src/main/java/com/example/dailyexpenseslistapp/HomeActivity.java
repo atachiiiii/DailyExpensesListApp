@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +15,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.dailyexpenseslistapp.Model.Data;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -24,8 +25,6 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.DateFormat;
 import java.util.Date;
-
-import com.example.dailyexpenseslistapp.Model.Data;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -135,12 +134,11 @@ public class HomeActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        FirebaseRecyclerAdapter<Data,MyViewHolder>adapter= new FirebaseRecyclerAdapter, MyViewHolder>
-        (
+        FirebaseRecyclerAdapter<Data,MyViewHolder>adapter= new FirebaseRecyclerAdapter, MyViewHolder> (
                 Data.class,
                 R.layout.item_data,
                 MyViewHolder.class,
-                mDatabase
+                mDatabase;
                 )
         {
 
@@ -167,7 +165,9 @@ public class HomeActivity extends AppCompatActivity {
         }
 
         public void setType (String type) {
+
             TextView mType=myview.findViewById(R.id.type);
+            mType.setText(type);
         }
 
         public void setNote(String note){
