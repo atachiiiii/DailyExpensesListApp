@@ -136,21 +136,18 @@ public class HomeActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        FirebaseRecyclerAdapter<Data,MyViewHolder>adapter=new FirebaseRecyclerAdapter<Data, MyViewHolder>
-                (
+        FirebaseRecyclerAdapter<Data,MyViewHolder>adapter=new FirebaseRecyclerAdapter<Data,MyViewHolder>(
                         Data.class,
                         R.layout.item_data,
                         MyViewHolder.class,
                         mDatabase
                 )
-                
 
 
         {
-
-
             @Override
-            protected void populateViewHolder(MyViewHolder viewHolder, Data model,int position){
+            protected void populateViewHolder(MyViewHolder viewHolder, Data model,int position)
+            {
 
                 viewHolder.setDate(model.getDate());
                 viewHolder.setType(model.getType());
@@ -158,7 +155,8 @@ public class HomeActivity extends AppCompatActivity {
                 viewHolder.setAmount(model.getAmount());
             }
         };
-        RecyclerView.setAdapter(adapter);
+
+        recyclerView.setAdapter(adapter);
 
     }
 
